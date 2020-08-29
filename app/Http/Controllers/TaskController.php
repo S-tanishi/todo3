@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index(ini $id)
+    public function index(int $id)
     {
         $folders = Folder::all();
 

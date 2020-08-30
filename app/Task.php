@@ -16,7 +16,7 @@ class Task extends Model
     ];
 
     /**
-     * 状態のラベル
+     * 状態を表すhtmlクラス
      * @return string
      */
 
@@ -30,6 +30,6 @@ class Task extends Model
              return '';
          }
 
-        return self::STATUS[$status]['label'];
+        return self::STATUS[$status]['class'];
      }
 }

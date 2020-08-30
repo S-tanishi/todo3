@@ -26,7 +26,10 @@
           </div>
           <div class="list-group">
             @foreach($folders as $folder)
-              <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" class="list-group-item {{ $current_folder_id ? 'active' : '' }}">
+              <a 
+                  href="{{ route('tasks.index', ['id' => $folder->id]) }}" 
+                  class="list-group-item {{ $current_folder_id ? 'active' : '' }}"
+              >
                 {{ $folder->title }}
               </a>
             @endforeach
@@ -52,7 +55,7 @@
               <th>期限</th>
               <th></th>
             </tr>
-            <thread>
+            </thead>
             <tbody>
               @foreach($tasks as $task)
                 <tr>
@@ -61,7 +64,7 @@
                     <span class="label {{ $task->status_class }}">{[ $task->status_label ]}</span>
                   </td>
                   <td>{{ $task->formatted_due_date }}</td>
-                  <td><a href="#">編集</a ></td>
+                  <td><a href="#">編集</a></td>
                 </tr>
               @endforeach
             </tbody>

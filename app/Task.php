@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
@@ -20,16 +21,23 @@ class Task extends Model
      * @return string
      */
 
-     public function getStatusLabelAttribute()
-     {
-         // 状態値
-         $status = $this->attributes['status'];
+    public function getStatusLabelAttribute()
+    {
+        // 状態値
+        $status = $this->attributes['status'];
         
-         // 定義されていなければ空文字を返す
-         if (!isset(self::STATUS[$status])) {
-             return '';
-         }
+        // 定義されていなければ空文字を返す
+        if (!isset(self::STATUS[$status])) {
+            return '';
+        }
 
         return self::STATUS[$status]['class'];
-     }
+    }
+
+    public function getFormattedDueDateAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->attributes['due_date'])
+            ->format('Y/m/d');
+            
+    }
 }

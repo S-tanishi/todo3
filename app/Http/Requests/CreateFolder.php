@@ -28,7 +28,7 @@ class CreateFolder extends FormRequest
         ];
     }
 
-    public functiuon attributes()
+    public function attributes()
     {
         return [
             'title' => 'フォルダ名',

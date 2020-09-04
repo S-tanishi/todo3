@@ -51,4 +51,16 @@ class TaskController extends Controller
             'id' => $currentz_folder->id,
         ]);
     }
+
+    /**
+     * GET /folders/{id}/tasks/{task_id}/edit
+     */
+    public function showEditForm(int $id, int $task_id)
+    {
+        $task = Task::find($task_id);
+
+        return view('tasks/edit', [
+            'task' =>$task,
+        ]);
+    }
 }

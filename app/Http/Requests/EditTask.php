@@ -24,7 +24,7 @@ class EditTask extends CreateTask
 
         return $attributes + [
             'status' => '状態',
-        ]
+        ];
     }
 
     public function messages()

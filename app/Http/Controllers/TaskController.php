@@ -6,6 +6,7 @@ use App\Folder;
 use App\Task;
 use Illuminate\Http\Request;
 use App\http\Requests\CreateTask;
+use App\http\Requests\EditTask;
 
 class TaskController extends Controller
 {
@@ -48,7 +49,7 @@ class TaskController extends Controller
         $current_folder->tasks()->save($task);
 
         return redirect()->route('tasks.index', [
-            'id' => $currentz_folder->id,
+            'id' => $current_folder->id,
         ]);
     }
 
